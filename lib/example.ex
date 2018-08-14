@@ -1,18 +1,8 @@
 defmodule Example do
-  @moduledoc """
-  Documentation for Example.
-  """
+  @behaviour Dependency.Behaviour
+  @dependency Application.get_env(:example, :dependency)
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Example.hello
-      :world
-
-  """
   def hello do
-    :world
+    @dependency.hello()
   end
 end

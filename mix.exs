@@ -6,10 +6,14 @@ defmodule Example.Mixfile do
       app: :example,
       version: "0.1.0",
       elixir: "~> 1.5",
+      elixirc_paths: elixirc_paths(Mix.env),
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]
   end
+
+  defp elixirc_paths(:test), do: ["test/support", "lib"]
+  defp elixirc_paths(_),     do: ["lib"]
 
   # Run "mix help compile.app" to learn about applications.
   def application do
@@ -21,6 +25,7 @@ defmodule Example.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:mox, "~> 0.4.0", only: :test}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
