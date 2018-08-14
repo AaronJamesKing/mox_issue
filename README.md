@@ -1,6 +1,6 @@
 # Example
 
-**TODO: Add description**
+Just run `mix test` to see the error about no expectation being defined
 
 ## Installation
 
